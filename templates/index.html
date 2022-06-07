@@ -10,15 +10,28 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Roboto:300,400,700" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
-   <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 
     <!-- Custom styles for this template -->
-    <link href="C:/Users/acola/Desktop/ru bc/REPOSITORY/portfolio/static/css/main.css" rel="stylesheet" />
-    <title>Arielle Colasanto | Portfolio</title>
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" />
+    <title>Colasanto | Portfolio</title>
+
+    <!-- Style links -->
+    <style>
+        a:link, a:visited {
+          color: rgb(113, 224, 180);
+        }
+        
+        a:hover, a:active {
+          background-color: rgb(11, 52, 58);
+        }
+        </style>
+
 </head>
 
 <body>
@@ -31,30 +44,30 @@
         <!-- Utilizes flexbox styling not taught in class -->
         <section class="fragment fragment-one">
             <div class="headers">
-                <h1> arielle colasanto </h1>
-                <h3> data analyst | building science | energy efficiency</h3>
+                <h1><div id="top"> arielle colasanto</br>
+                        <div class="fragment text">'scout'</div> 
+                    </div></h1>
+                <h3> data analyst | building science | energy efficiency specialist</h3>
             </div>
 
             <div class="learn">
 
                 <!-- You could hyperlink this down with a smooth scroll -->
-                <p> learn more </p>
+                <p><a href="#learnmore"> learn more </a></p>
                 <i class="fas fa-chevron-down"></i>
             </div>
 
         </section>
         <section class="fragment fragment-two">
-            <h2> Seeking New <br />Opportunities </h2>
+            <h2><div id="learnmore"> Seeking New <br />Opportunities </div></h2>
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
 
                         <!-- Edit this text with a brief intoduction / brand statement etc. -->
                         <h5>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sem luctus,
-                            feugiat
-                            libero id,
-                            lacinia ipsum.
+                            I am a data analyst with a passion for building science and energy efficiency. I am currently
+                            seeking a new opportunity to work in the data analysis and data visualization space.
                         </h5>
                     </div>
                 </div>
@@ -63,13 +76,13 @@
 
             <div class="learn">
                 <!-- You could hyperlink this down with a smooth scroll -->
-                <p> see why you should hire me </p>
+                <p><a href="#repo"> projects </a></p>
                 <i class="fas fa-chevron-down"></i>
             </div>
 
         </section>
         <section class="fragment fragment-three">
-            <h3>Things I've Made</h3>
+            <h3><div id="repo">Repositories</div></h3>
             <hr class="title-underline">
             <div class="container carousel-container">
 
@@ -87,65 +100,86 @@
                         <div class="carousel-item active">
 
                             <!--image here -->
-                            <img src="C:/Users/acola/Desktop/ru bc/REPOSITORY/portfolio/static/images/placeholder.png" class="d-block w-100" alt="...">
+                            <img src="{{ url_for('static', filename='images/surfsup.png') }}" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                <button class="btn btn-primary">View Code</button>
+                                <h5>Surfs Up - SQL</h5>
+                                <p>Using python and sqlalchemy an analysis of temperature data was produced.</p>
+                                <a href="https://github.com/squishykins/surfs_up" button class="btn btn-primary">View Code</button></a>
                             </div>
                         </div>
                         <div class="carousel-item">
 
                             <!--image here -->
-                            <img src="C:/Users/acola/Desktop/ru bc/REPOSITORY/portfolio/static/images/placeholder.png" class="d-block w-100" alt="...">
+                            <img src="{{ url_for('static', filename='images/election.png') }}" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Second slide label</h5>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                <button class="btn btn-primary">View Code</button>
+                                <h5>Election Analysis - Python</h5>
+                                <p>An analysis of election data that can be used as a template for any state and county election.</p>
+                                <a href= "https://github.com/squishykins/election-analysis" button class="btn btn-primary">View Code</button></a>
                             </div>
                         </div>
                         <div class="carousel-item">
 
                             <!--image here -->
-                            <img src="C:/Users/acola/Desktop/ru bc/REPOSITORY/portfolio/static/images/placeholder.png" class="d-block w-100" alt="...">
+                            <img src="{{ url_for('static', filename='images/kickstarter.png') }}" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Third slide label</h5>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                <button class="btn btn-primary">View Code</button>
+                                <h5>Kickstarter Analysis - Excel</h5>
+                                <p>Using Excel pivot tables and graphs analysis is provided for the Kickstarter challenge.</p>
+                                <a href= "https://github.com/squishykins/kickstarter-analysis" button class="btn btn-primary">View Code</button></a>
                             </div>
                         </div>
                     </div>
 
+                </div>
+                <div class="learn">
+                    <!-- You could hyperlink this down with a smooth scroll -->
+                    <p><a href="#tech">skills </a></p>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
 
         </section>
         <section class="fragment fragment-four">
 
-            <h3>Technology I Use</h3>
+            <h3><div id="tech">Technology I Use</div></h3>
             <hr class="title-underline">
             <div class="container">
                 <div class="labels">
                     <div class="tech">CSS3</div>
                     <div class="tech">HTML5</div>
                     <div class="tech">SQL</div>
-                    <div class="tech">Git</div>
+                    <div class="tech">Excel</div>
                     <div class="tech">Python</div>
+                </div>
+                <div class="learn">
+                    <!-- You could hyperlink this down with a smooth scroll -->
+                    <p><a href="#edu">education </a></p>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
 
+
         </section>
         <section class="fragment fragment-five">
-            <h3>My Education</h3>
+            <h3><div id= "edu">Education</div></h3>
             <hr class="title-underline">
 
             <!-- Don't forget to swap out the universities and education to match your own-->
             <div class="container">
                 <h5> Rutgers University</h5>
                 <p class="credential"> Data Science Bootcamp | 2022</p>
-                <h5> Rutgers Univserity</h5>
-                <p class="credential"> B.A. Marine Biology | 2015</p>
+                <h5> Building Performance Institute</h5>
+                <p class="credential"> Building Science Principles Certificate | 2022</p>
+                <h5> Rutgers Univserity - New Brunswick</h5>
+                <p class="credential"> B.S. Marine Biology and Biological Oceanography | 2016</p>
+                <h5> Stockton University </h5>
+                <p class="credential"> A.S. Environmental Science | 2012</p>
+                <div class="learn">
 
+                    <!-- You could hyperlink this down with a smooth scroll -->
+                    <i class="fas fa-chevron-up"></i>
+                    <a href="#top"> </br>to the top </a>
+
+                </div>
             </div>
         </section>
 
@@ -156,14 +190,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h6>arielle colasanto</h6>
+                        <h6>arielle 'scout' colasanto</h6>
 
                         <!--update these links to match your own social media profiles -->
-                        <a href="https://twitter.com" class="social-icon"><i class="fab fa-twitter"></i></a>
                         <a href="https://linkedin.com/in/arielle-colasanto/" class="social-icon"><i class="fab fa-linkedin"></i></a>
                         <a href="jttps://github.com/squishykins/" class="social-icon"><i class="fab fa-github"></i></a>
                         <a href="mailto:acolasanto@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                        <p class="text-muted copyright">Arielle Colasanto &copy; 2022 - 2023 </p>
+                        <p class="text-muted copyright">scout colasanto &copy; 2022 - 2023 </p>
+                        
+
                     </div>
                 </div>
             </div>
@@ -180,7 +215,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 
 </html>

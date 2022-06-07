@@ -1,5 +1,6 @@
 html, body {
     font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
  
 }
 
@@ -20,7 +21,7 @@ h3 {
     font-size: 1.5rem;
     letter-spacing: 1px;
     text-align: center;
-    color: #20A882;
+    color: #eaebe8;
 }
 
 h5 {
@@ -28,23 +29,32 @@ h5 {
 }
 
 .btn-primary {
-    background-color: #f39d9b;
-    border-color: #f39d9b;
+    background-color: #4d7672;
+    border-color: #000000;
     padding: 5px 30px;
 }
 
 .btn-primary:hover,
 .btn-primary:active, 
 .btn-primary:focus {
-    background-color: #f39d9b !important;
-    border-color: #f39d9b !important;
+    background-color: #9bdef3 !important;
+    border-color: #fffefe !important;
+}
+
+.learn{
+    font-size: 1rem;
+    font-weight: 200;
+    text-align: center;
+    color: #eaebe8;
+
+    margin-top: 2rem;
 }
 
 .title-underline{
     border: 0;
     height: 1px;
     background: #333;
-    background-image: linear-gradient(to right, #fff, #0e5eab, #fff);
+    background-image: linear-gradient(to right, rgba(75, 171, 146, 0.365), #2f5236, rgb(75, 171, 146, 0.365));
     max-width: 350px;
     margin-bottom: 50px;
 }
@@ -54,7 +64,7 @@ h5 {
 }
 
 .fragment-one {
-    background-color: #A8310F;
+    background-color: #2c4432;
     color: #63FFD3;
     display: flex;
     justify-content: space-around;
@@ -80,8 +90,8 @@ h5 {
 }
 
 .fragment-two {
-    background-color: #F59B3B;
-    color: #A8425A;
+    background-color: #46594d;
+    color: #eaebe8;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -96,16 +106,16 @@ h5 {
 }
 
 .fragment-two p, .fragment-two i {
-    color: #0e5eab
+    color: #41b27a
 }
 
 .fragment-three {
-    background-color: #D8F5B0;
-    color: #0e5eab;
+    background-color: #5c5447;
+    color: #0eab6a;
 }
 
 .fragment-three .carousel {
-    max-width: 800px;
+    max-width: 400px;
 }
 
 .fragment-three .carousel-container {
@@ -116,15 +126,20 @@ h5 {
 }
 
 .fragment-three .carousel-caption {
-    color: #999
-}
-
-.fragment-three .custom-indicator {
-    background-color: #e1f8b7 !important;
+    color: rgb(9, 27, 22);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0;
+    padding: 2rem;
+    max-width: 14rem;
+    background-color: #42a77e87;
+    border-radius: 4px;
+    max-width: 50rem;
 }
 
 .fragment-four {
-    background-color: #fae8e3;
+    background-color: #579379;
     color: #0e5eab;
 }
 
@@ -149,12 +164,12 @@ h5 {
 }
 .fragment-four .tech:hover {
     transition-duration: 0.3s;
-    background: rgba(255,255,255,1)
+    background: rgb(156, 235, 210)
 }
 
 
 .fragment-five {
-    background-color: #fee4c6;
+    background-color: #3d6356;
     padding: 50px;
     color: #f84a12;
     text-align: center; 
@@ -167,7 +182,7 @@ h5 {
 }
 
 .fragment-five .credential {
-    color: #999;
+    color: rgb(0, 0, 0);
     margin-bottom: 50px;
     font-weight: 300;
 }
@@ -177,7 +192,7 @@ h5 {
 }
 
 .fragment-six h6 {
-    color: #f84a12;
+    color: #3db585;
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-weight: 900;
@@ -195,3 +210,64 @@ h5 {
     margin: 10px 0;
     font-size: 0.8rem;
 }
+
+:root {
+    /* The intrinsic width of the underline stroke (in pixels). This is 
+     * the same as the height of the cap images. Don't specify the
+     * units! This is because of some of the calculations we do later on. */
+    --underline-intrinsic-width: 8;
+    
+    /* The actual width of the underline stroke we want to render (in pixels).
+     * You can modify this, and the sizing and positioning should be calculated
+     * accordingly. Again, Don't specify the units! */
+    --underline-width: 12;
+    
+    /* The color used to draw the underline. It should match the color
+     * used in the cap images... unfortunately we can't modify the SVG
+     * fill via CSS because it's a background image. */
+    --underline-color: #f1a1e3;
+    
+    /* We need to know the width of the cap images so that we
+     * can position everything on the x axis accordingly. */
+    --underline-cap-width: 4px;
+    
+    /* The border is positioned relative to the bottom of the line.
+     * We can move it upwards a little to create an overlap effect. */
+    --underline-offset-y: -2px;
+    
+    /* The padding to add to the x axis. By default, the caps would be
+     * aligned with the beginning and end of the line. */
+    --underline-padding-x: 0.12em;
+  }
+    
+  .text {
+    display: inline;
+    --underline-width-scale: calc(var(--underline-width) / var(--underline-intrinsic-width));
+    padding: 0 calc(var(--underline-padding-x) + calc(var(--underline-cap-width) * var(--underline-width-scale)));
+    box-decoration-break: clone;
+    background-repeat: no-repeat;
+    color: #c3d3cf;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+    background-image:
+      linear-gradient(180deg, var(--underline-color), var(--underline-color)),
+      var(--cap-image-left),
+      var(--cap-image-right);
+    background-position-x:
+      calc(var(--underline-cap-width) * var(--underline-width-scale)),
+      0,
+      100%;
+    background-position-y: calc(100% - var(--underline-offset-y) * -1);
+    background-size:
+      calc(100% - calc(var(--underline-cap-width) * var(--underline-width-scale) * 2)) calc(var(--underline-width) * 1px),
+      auto calc(var(--underline-width) * 1px),
+      auto calc(var(--underline-width) * 1px);
+      
+    font-size: 3rem;
+    font-weight: bold;
+    --underline-width: 20;
+    --underline-offset-y: -2px;
+    /* The cap images to use that form the left and right shape.*/
+    --cap-image-left: url(https://files-6lc03kjqt.now.sh/left-2.svg);
+    --cap-image-right: url(https://files-e7gkh52mq.now.sh/right-2.svg);
+  }
